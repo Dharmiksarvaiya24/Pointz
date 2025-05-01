@@ -10,7 +10,7 @@ app.use(cors());
 
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
 })
 .then(() => console.log("Connected to MongoDB"))
 .catch(err => console.error("MongoDB connection error:", err));
@@ -59,9 +59,16 @@ app.post("/newuser", async (req, res) => {
     const { username } = req.body;
     if (!username) return res.status(400).json({ error: "Username is required" });
 
+  
+    const count = await NewUser.countDocuments();
+    if (count >= 2) {
+      return res.status(400).json({ error: "User limit reached. Only 2 users" });
+    }
     const userEntry = new NewUser({ username });
     await userEntry.save();
+
     res.json({ message: "User added successfully!", user: userEntry });
+
   } catch (error) {
     console.error("Error in /newuser:", error);
     res.status(500).json({ error: "Internal Server Error" });
