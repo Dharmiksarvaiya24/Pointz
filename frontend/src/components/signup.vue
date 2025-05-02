@@ -9,7 +9,7 @@
     
     <div class="signup-wrapper">
         <div class="image-container">
-      <img src="../assets/signup.png" alt="Signup Image" class="top-logo" />
+      <img src="https://i.postimg.cc/X79jWVxM/signup.png" alt="Signup Image" class="top-logo" />
     </div>
       <h1 class="heading">Signup</h1>
       <h1 class="sub-heading">Let’s get you started with Pointz!</h1>
@@ -68,7 +68,7 @@
     methods: {
       async submitForm() {
         try {
-          const response = await axios.post("http://localhost:3000/signup", {
+          const response = await axios.post(`${import.meta.env.VITE_API_URL}/signup`, {
             username: this.username,
             email: this.email,
             password: this.password,

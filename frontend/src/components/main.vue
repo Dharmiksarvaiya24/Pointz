@@ -10,7 +10,7 @@
       <div class="container">
         <header>
           <div class="logo-container">
-            <img src="../assets/main-page.png" alt="Pointz Logo" class="logo" />
+            <img src="https://i.postimg.cc/SRWwBK4D/main-page.png" alt="Pointz Logo" class="logo" />
           </div>
           <h1 class="main-heading">Welcome to Pointz</h1>
           <p class="tagline">Reward yourself for everyday achievements</p>
@@ -20,21 +20,21 @@
           <div class="card-content features">
             <div class="feature">
               <div class="feature-icon">
-                <img src="../assets/main1.png" alt="Reward Icon" />
+                <img src="https://i.postimg.cc/D0MXK7c4/main1.png" alt="Reward Icon" />
               </div>
               <p>Earn points as rewards for your everyday actions</p>
             </div>
   
             <div class="feature">
               <div class="feature-icon">
-                <img src="../assets/main2.png" alt="Gift Icon" />
+                <img src="https://i.postimg.cc/rFs1ZP9t/main2.png" alt="Gift Icon" />
               </div>
               <p>Turn achievements into exciting benefits and lifestyle upgrades</p>
             </div>
   
             <div class="feature">
               <div class="feature-icon">
-                <img src="../assets/main3.png" alt="Chart Icon" />
+                <img src="https://i.postimg.cc/CLcvz8cb/main3.png" alt="Chart Icon" />
               </div>
               <p>From fitness to finance, Pointz motivates positive habits</p>
             </div>

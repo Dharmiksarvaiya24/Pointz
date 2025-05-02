@@ -16,9 +16,9 @@
       <div class="navbar-right">
         <div class="user-section">
           <div class="history" @click="toggleHistory">
-            <img src="../assets/history.png" alt="History" style="width: 20px; height: 20px;" />
+            <img src="https://i.postimg.cc/MG6KthyC/history.png" alt="History" style="width: 20px; height: 20px;" />
           </div>
-          <img src="../assets/user.png" alt="User" class="user-avatar" @click="toggleUserMenu" />
+          <img src="https://media-hosting.imagekit.io/7e0014a4dc3e47d4/user.png?Expires=1840777415&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=RIjpm~fQI65uFioqWrK5VBy6n91fjHQzTH~YrxWF43vj8lzFiYPZkBznkj-vVRUwTyQT-kSfe7swM0IwbFvIeh7~8O6VJGNqGk848i0PkYvp5Q2eg5RUDZepcuBr1t~drs8QzlvwFp5IbV9~Zu3TM4zBqpqGCxIEawbGhHJ1EGhKCQn0cMQdQWyOf5x9C6b7BCzx4pztShEC0LpSLrR0YRN16ux-ewl78UgFTfrhWwAoeIX1qvYW1HOYR4Ypk7Hqfv3z2AL6tXkN6cfAJXcVXfwXGW~y7BUvwU~WaJVQDBEBH124aATxGyqaoGtA0YaTkPu43BzEH~6z3USotYDLfQ__" alt="User" class="user-avatar" @click="toggleUserMenu" />
           <span class="welcome-label">{{ userName }}</span>
         </div>
     
@@ -31,7 +31,7 @@
         <div class="user-menu">
           <div class="user-menu-header">
             <div class="user-menu-avatar">
-              <img src="../assets/user.png" alt="User" />
+              <img src="https://media-hosting.imagekit.io/7e0014a4dc3e47d4/user.png?Expires=1840777415&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=RIjpm~fQI65uFioqWrK5VBy6n91fjHQzTH~YrxWF43vj8lzFiYPZkBznkj-vVRUwTyQT-kSfe7swM0IwbFvIeh7~8O6VJGNqGk848i0PkYvp5Q2eg5RUDZepcuBr1t~drs8QzlvwFp5IbV9~Zu3TM4zBqpqGCxIEawbGhHJ1EGhKCQn0cMQdQWyOf5x9C6b7BCzx4pztShEC0LpSLrR0YRN16ux-ewl78UgFTfrhWwAoeIX1qvYW1HOYR4Ypk7Hqfv3z2AL6tXkN6cfAJXcVXfwXGW~y7BUvwU~WaJVQDBEBH124aATxGyqaoGtA0YaTkPu43BzEH~6z3USotYDLfQ__" alt="User" />
             </div>
             <div class="user-menu-info">
               <h3>{{ userName }}</h3>
@@ -186,7 +186,7 @@ export default {
     },
     async fetchUsers() {
       try {
-        const response = await axios.get("http://localhost:3000/users");
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/users`);
         this.users = response.data;
       } catch (error) {
         alert("Failed to fetch users. Please try again.");
@@ -198,11 +198,10 @@ export default {
         return;
       }
       try {
-        await axios.post("http://localhost:3000/newuser", { username: this.newuser });
+        await axios.post(`${import.meta.env.VITE_API_URL}/newuser`, { username: this.newuser });
         this.newuser = "";
         this.showModal = false;
         await this.fetchUsers();
-        
         alert("User added successfully!");
       } catch (error) {
         alert("User limit reached. Only 2 users allow");
@@ -212,7 +211,6 @@ export default {
       const index = this.users.findIndex(u => u._id === updatedUser._id);
       if (index !== -1) {
         this.users[index] = updatedUser;
-        
       }
     },
     
@@ -866,4 +864,3 @@ export default {
   }
 }
 </style>
-

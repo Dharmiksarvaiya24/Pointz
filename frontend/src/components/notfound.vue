@@ -8,7 +8,7 @@
       </div>
   
       <div class="error-box">
-  <img src="../assets/404.png" alt="404 Image" class="error-image" />
+  <img src="https://i.postimg.cc/Wzghx0tC/404.png" alt="404 Image" class="error-image" />
   <h1 class="error-heading">404 - Page not found</h1>
   <p class="error-text">Oops! This isn't the web page you're looking for.</p>
   <router-link to="/" class="back-button">Go Back Home</router-link>

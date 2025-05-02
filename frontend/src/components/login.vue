@@ -8,8 +8,8 @@
 
   <div class="login-wrapper">
     <div class="image-container">
-      <img src="../assets/login.png" alt="Signup Image" class="top-logo" />
-    </div>
+      <img src="https://i.postimg.cc/g29xyStp/login.png" alt="Signup Image" class="top-logo" />
+    </div>  
     <h1 class="heading">Login</h1>
     <h2 class="sub-heading">Good to see you ,Welcome back!</h2>
 
@@ -50,7 +50,7 @@ export default {
   methods: {
     async submitForm() {
       try {
-        const response = await axios.post("http://localhost:3000/login", {
+        const response = await axios.post(`${import.meta.env.VITE_API_URL}/login`, {
           username: this.username,
           email: this.email,
           password: this.password

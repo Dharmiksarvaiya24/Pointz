@@ -114,7 +114,7 @@ export default {
     },
     async deleteUser() {
       try {
-        await axios.post('http://localhost:3000/deleteuser', { id: this.user._id });
+        await axios.post(`${import.meta.env.VITE_API_URL}/deleteuser`, { id: this.user._id });
         this.$emit('user-deleted', this.user._id);
         this.closeDeleteModal();
         this.$emit('show-notification', {
@@ -140,7 +140,7 @@ export default {
     },
     async submitPoints() {
       try {
-        await axios.post('http://localhost:3000/updatepoint', {
+        await axios.post(`${import.meta.env.VITE_API_URL}/updatepoint`, {
           id: this.user._id,
           points: this.pointChange,
           description: this.description
